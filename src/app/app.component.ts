@@ -7,7 +7,7 @@ import { ChartConfiguration, ChartOptions } from 'chart.js';
 import { ConfirmDeleteDialogComponent } from './confirm-delete-dialog/confirm-delete-dialog.component';
 
 
-
+//ng build --output-path docs --base-href /mina-excel
 
 
 @Component({
