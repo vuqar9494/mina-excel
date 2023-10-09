@@ -1,0 +1,61 @@
+<input #file style="display: none;" type="file" accept=".xls , .xlsx" (change)="upload($event)">
+<button [disabled]="AllData.length!=0" (click)="file.click()">Upload file</button>
+<button [disabled]="AllData.length==0" mat-button (click)="openDialog({id:0,len:null,status:null})">Add New Data</button>
+
+<hr>
+<div class="content">
+<div class="tab" id="my-tabular-table"></div>
+<aol-map *ngIf="ismap" class="map"   [height]="'493px'">
+    
+    <aol-view [zoom]="len<70 ?19:len<100?18:len<400?16:len<1000?15:13.5">
+        <aol-coordinate [x]="X[0][0]" [y]="X[0][1]" [srid]="'EPSG:4326'"></aol-coordinate>
+    </aol-view>
+    <aol-layer-tile>
+      <aol-source-bingmaps [key]="'AleNR8_QvCfbk5sYV7vDCE3a58G_880fd1gEStpWORI6xBSbd5DUJsH2NShQZCp0'" [imagerySet]="'AerialWithLabels'">
+      </aol-source-bingmaps>
+    </aol-layer-tile>
+    <aol-layer-vector>
+      <aol-source-vector>
+          <aol-feature>
+              <aol-geometry-linestring>
+                  <aol-collection-coordinates
+                      [coordinates]="[X[0],X[1]]"
+                      [srid]="'EPSG:4326'">
+                  </aol-collection-coordinates>
+              </aol-geometry-linestring>
+              <aol-style>
+                  <aol-style-stroke [color]="[255, 0, 0,1]" [width]="len<70 ?10:len<100?7:5"  ></aol-style-stroke>
+              </aol-style>
+          </aol-feature>
+      </aol-source-vector>
+  </aol-layer-vector>
+</aol-map>
+</div>
+<div class="content2  " > 
+     <button *ngIf="AllData.length!=0" mat-button (click)="setAlaliz()">Analiz 1</button>
+    <button *ngIf="AllData.length!=0" mat-button (click)="setAlaliz2()">Analiz 2</button>
+</div>
+<div class="content2 " >
+  
+    <canvas class="c1" baseChart
+  [type]="'pie'"
+  [datasets]="pieChartDatasets"
+  [labels]="pieChartLabels"
+  [options]="pieChartOptions"
+  [plugins]="pieChartPlugins"
+  [legend]="pieChartLegend">
+</canvas>
+<canvas class="c2" style="margin-top: 70px;"  baseChart
+        [data]="barChartData"
+        [options]="barChartOptions"
+        [plugins]="barChartPlugins"
+        [legend]="barChartLegend"
+        [type]="'bar'">
+</canvas>
+</div>
+
+
+
+  
+
+

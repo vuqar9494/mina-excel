@@ -1,0 +1,143 @@
+//Tabulator styles override
+// #my-tabular-table{
+// //width: max-content;
+// }
+*{box-sizing: border-box;}
+.content{
+   width: calc(100% - 40px);
+   margin-left: 20px;
+    display: flex;
+    justify-content:center;
+    aol-map:first-child{width: 541px!important;}
+}
+
+.content2{
+   
+   margin-top: 15px;
+   
+    display: flex;
+    justify-content:space-around;
+}
+.tabulator {
+    font-size: 12px;
+    border: none;
+    width: 100%;
+   
+ }
+ 
+ .tabulator .tabulator-header {
+    font-weight: normal;
+    border-bottom: 1px solid;
+    border-bottom-color: rgba(0, 0, 0, 0.12);
+    color: rgba(0, 0, 0, 0.54);
+    width: 100%;
+ }
+ 
+ .tabulator .tabulator-header .tabulator-col {
+    height: 48px;
+    background-color: #ffffff;
+    border: none;
+    padding: 0 7px;
+    
+ }
+ .c1{
+   margin-top: 20px!important;
+   height: 300px!important;
+   width:300px!important;
+}
+
+.c2{
+   margin-top: 40px!important;
+   height: 150px!important;
+   width:300px!important;
+}
+ .tabulator-row {
+    border-bottom: 1px solid;
+    border-bottom-color: rgba(0, 0, 0, 0.12);
+    min-height: 48px;
+    vertical-align: middle;
+    width: 100%;
+ }
+ 
+ .tabulator-row .tabulator-cell {
+    padding: 16px 7px;
+    border-right: none;
+    vertical-align: middle;
+ }
+ 
+ .tabulator-row .tabulator-cell:first-of-type,
+ .tabulator .tabulator-header .tabulator-col:first-of-type {
+    padding-left: 24px;
+ }
+ 
+ .tabulator-row.tabulator-row-even {
+    background-color: #ffffff;
+ }
+ 
+ button,input
+ {
+   margin-left: 10px;
+   font-style: normal;
+   font-weight: 600;
+   font-size: 16px;
+   background-color: #0756a5;
+   color: #fff;
+   height: 40px;
+   width: 170px;
+   border-radius: 5px;
+   border: none;
+   box-shadow: 1px 3px 3px #999;
+ }
+
+
+ button[disabled]
+ {
+ 
+   background-color: #dbeaf9!important;
+;
+ }
+.black{color: black; margin-left: 10px!important;}
+
+
+@media screen and (max-width: 1110px) {
+   
+ }
+ 
+ @media screen and (max-width: 896px) {
+   .content{
+      display: block;
+    }
+   .tap{display: block; width: 100%;}
+ .map{display: block; width: 100%;}
+ }
+
+ @media screen and (max-width: 584px) {
+ 
+ 
+ 
+   button,input
+   {
+     margin-left: 5px;
+     font-style: normal;
+     font-weight: 600;
+     font-size: 13px;
+     background-color: #0756a5;
+     color: #fff;
+     height: 40px;
+     width: 130px;
+     border-radius: 5px;
+     border: none;
+     box-shadow: 1px 3px 3px #999;
+   }
+    .c1{
+      margin-top: 20px!important;
+      height: 180px!important;
+      width:180px!important;
+   }
+
+   .c2{
+      margin-top: 40px!important;
+      height: 100px!important;
+      width:200px!important;
+   }
+ }
