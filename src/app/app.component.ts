@@ -7,7 +7,7 @@ import { ChartConfiguration, ChartOptions } from 'chart.js';
 import { ConfirmDeleteDialogComponent } from './confirm-delete-dialog/confirm-delete-dialog.component';
 
 
-//ng build --output-path docs --base-href /mina-excel
+//ng build --output-path docs --base-href /mina-excel/
 
 
 @Component({
@@ -17,8 +17,8 @@ import { ConfirmDeleteDialogComponent } from './confirm-delete-dialog/confirm-de
 })
 export class AppComponent implements OnInit,AfterViewInit,OnChanges {
 
-X
-len
+  X
+  len
  ismap=false
  AllData=[];
  heads=[];
@@ -32,20 +32,11 @@ len
  constructor(public dialog: MatDialog) {
  }
   ngOnChanges(changes: SimpleChanges): void {
-   
   }
-
-
-
-
- ngAfterViewInit() {
- 
+ngAfterViewInit() {
  }
-
-
- ngOnInit() {
-
- }
+ngOnInit() {
+}
 
  
   upload(event){
@@ -175,7 +166,7 @@ crossIcon = function(cell, formatterParams){ //plain text value
   public pieChartOptions: ChartOptions<'pie'> = {
     responsive: false,
   };
-  public pieChartLabels = [  'Status 0' ,  'Status 1' , 'Status 2' ];
+  public pieChartLabels ;
   public pieChartDatasets
   public pieChartLegend = true;
   public pieChartPlugins = [];
@@ -208,11 +199,16 @@ crossIcon = function(cell, formatterParams){ //plain text value
   }
 
   setAlaliz(){
+    let all=this.AllData.length;
+    let st0=this.AllData.filter(x=>x.status==0).length
+    let st1=this.AllData.filter(x=>x.status==1).length
+    let st2=this.AllData.filter(x=>x.status==2).length
+    this.pieChartLabels = [  `Status 0 (${Math.round((100/all)*st0)})` ,  `Status 1 (${Math.round((100/all)*st1)})` , `Status 2 (${Math.round((100/all)*st2)})` ];
      this.pieChartDatasets = [ {
       data: [ 
-        this.AllData.filter(x=>x.status==0).length,
-        this.AllData.filter(x=>x.status==1).length,
-        this.AllData.filter(x=>x.status==2).length,
+        st0 ,
+        st1,
+        st2,
       ]
     } ];
 
