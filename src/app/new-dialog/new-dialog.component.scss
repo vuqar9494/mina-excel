@@ -49,3 +49,35 @@ button[disabled]
   background-color: #dbeaf9!important;
 ;
 }
+
+@media screen and (max-width: 490px) {
+   
+  button
+  {
+    margin-left: 10px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    background-color: #0756a5;
+    color: #fff;
+    height: 30px;
+    width: 100px;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 1px 3px 3px #999;
+  }
+  
+  select,input{
+     padding-left: 5px;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 16px;
+      
+      height: 35px;
+      width: 200px;
+      border-radius: 10px;
+      border: none;
+      box-shadow: 1px 3px 3px #999;
+  }
+
+}
