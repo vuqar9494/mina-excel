@@ -3,17 +3,17 @@
   
   
     <label>Add len value</label>
-    <input matInput [(ngModel)]="data.len">
+    <input name="len"  #len="ngModel" matInput [(ngModel)]="data.len" required>
  
     <label>Choose status</label>
-    <select  [(ngModel)]="data.status">
+    <select name="status"  #status="ngModel" [(ngModel)]="data.status" required>
         <option value="0">0</option>
         <option value="1">1</option>
         <option value="2">2</option>
     </select>
-  
+
 </div>
 <div mat-dialog-actions>
-  <button style="background-color: red; " mat-button (click)="onNoClick()">Cancel</button>
-  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>{{data.id==0 ?'Add':'Update'}}</button>
+  <button  style="background-color: red; " mat-button (click)="onNoClick()">Cancel</button>
+  <button [disabled]="!(len.valid && status.valid)"  mat-button [mat-dialog-close]="data" cdkFocusInitial>{{data.id==0 ?'Add':'Update'}}</button>
 </div>

@@ -205,11 +205,7 @@ crossIcon = function(cell, formatterParams){ //plain text value
     let st2=this.AllData.filter(x=>x.status==2).length
     this.pieChartLabels = [  `Status 0 (${Math.round((100/all)*st0)}%)` ,  `Status 1 (${Math.round((100/all)*st1)}%)` , `Status 2 (${Math.round((100/all)*st2)}%)` ];
      this.pieChartDatasets = [ {
-      data: [ 
-        st0 ,
-        st1,
-        st2,
-      ]
+      data: [  st0 ,  st1,  st2,  ]
     } ];
 
     

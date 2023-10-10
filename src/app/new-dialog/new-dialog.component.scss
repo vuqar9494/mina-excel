@@ -42,3 +42,10 @@ select,input{
     border: none;
     box-shadow: 1px 3px 3px #999;
 }
+
+button[disabled]
+{
+
+  background-color: #dbeaf9!important;
+;
+}
