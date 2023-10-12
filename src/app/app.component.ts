@@ -68,7 +68,7 @@ fileRdr.onload = (e) =>{
   this.heads.push({formatter:this.crossIcon, width:10, align:"center", cellClick:(e, cell)=>this.delete(cell)})
   this.heads.push({formatter:this.editIcon, width:10, align:"center", cellClick:(e, cell)=>this.openDialog(cell.getRow().getData())})
   this.heads.push({formatter:this.printIcon, width:10, align:"center", cellClick:(e, cell)=>this.openMap(cell.getRow().getData())})
-  //this.heads=[...Object.keys(this.AllData[0])]
+  //this.heads=[...Object.keys(this.AllData[0])]openMap
   this.drawTable();
  
 }
@@ -182,14 +182,16 @@ crossIcon = function(cell, formatterParams){ //plain text value
 
 
   setAlaliz2(){
+
+    let FilteredData=this.table.getData('active')
     this.barChartData=
     {
       labels: [ 'Status 0','Status 1','Status 2' ],
       datasets: [
         { data: [ 
-          this.AllData.filter(x=>x.status==0).length,
-          this.AllData.filter(x=>x.status==1).length,
-          this.AllData.filter(x=>x.status==2).length,
+          FilteredData.filter(x=>x.status==0).length,
+          FilteredData.filter(x=>x.status==1).length,
+          FilteredData.filter(x=>x.status==2).length,
         ], label: 'Status' },
     
       ]
@@ -199,10 +201,11 @@ crossIcon = function(cell, formatterParams){ //plain text value
   }
 
   setAlaliz(){
-    let all=this.AllData.length;
-    let st0=this.AllData.filter(x=>x.status==0).length
-    let st1=this.AllData.filter(x=>x.status==1).length
-    let st2=this.AllData.filter(x=>x.status==2).length
+    let FilteredData=this.table.getData('active')
+    let all=FilteredData.length;
+    let st0=FilteredData.filter(x=>x.status==0).length
+    let st1=FilteredData.filter(x=>x.status==1).length
+    let st2=FilteredData.filter(x=>x.status==2).length
     this.pieChartLabels = [  `Status 0 (${Math.round((100/all)*st0)}%)` ,  `Status 1 (${Math.round((100/all)*st1)}%)` , `Status 2 (${Math.round((100/all)*st2)}%)` ];
      this.pieChartDatasets = [ {
       data: [  st0 ,  st1,  st2,  ]
